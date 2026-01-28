@@ -10,6 +10,7 @@ import ChangePassword from "./pages/account/ChangePassword";
 import MyPlaylist from "./pages/playlist/MyPlaylist";
 import PlaylistDetail from "./pages/playlist/PlaylistDetail";
 import SongDetail from "./pages/song/SongDetail";
+import NotFound from "./pages/404/NotFound";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
 
         <Route path="/song/:id" element={<SongDetail />}></Route>
       </Route>
+
+      {/* 404 */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
