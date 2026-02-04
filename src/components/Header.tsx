@@ -1,17 +1,22 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <header className="border-b border-white/5 bg-background-light dark:bg-sidebar-dark">
       <div className="relative flex h-15 max-w-7xl mx-auto items-center px-6 lg:px-8">
         {/* Logo */}
         <div className="flex items-center">
-          <img
-            src={assets.logo}
-            alt="Danniel Vo logo"
-            className="h-24 w-24 object-contain"
-          />
+          <a onClick={() => navigate("/")} className="cursor-pointer">
+            <img
+              src={assets.logo}
+              alt="Danniel Vo logo"
+              className="h-24 w-24 object-contain"
+            />
+          </a>
         </div>
 
         {/* Search bar */}
