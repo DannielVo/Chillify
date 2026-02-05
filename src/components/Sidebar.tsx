@@ -43,14 +43,7 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
       {/* Menu */}
       <nav className="flex flex-col gap-2 px-2">
         {menuItems.map((item) => (
-          <SidebarItem
-            key={`sidebaritem-${item.label}`}
-            icon={item.icon}
-            label={item.label}
-            active={item.active}
-            isCollapsed={isCollapsed}
-            danger={item.danger}
-          />
+          <SidebarItem key={item.label} isCollapsed={isCollapsed} {...item} />
         ))}
       </nav>
     </aside>

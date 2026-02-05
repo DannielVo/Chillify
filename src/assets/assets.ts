@@ -4,10 +4,23 @@ export const assets = {
   logo,
 };
 
-export const menuItems = [
-  { icon: "home", label: "Home" },
-  { icon: "library_music", label: "My Playlist" },
-  { icon: "favorite", label: "Liked Songs" },
-  { icon: "person", label: "Account", active: true },
+type MenuItem =
+  | {
+      icon: string;
+      label: string;
+      path: string;
+      danger?: false;
+    }
+  | {
+      icon: string;
+      label: string;
+      danger: true;
+    };
+
+export const menuItems: MenuItem[] = [
+  { icon: "home", label: "Home", path: "/" },
+  { icon: "library_music", label: "My Playlists", path: "/playlists" },
+  { icon: "favorite", label: "Liked Songs", path: "/liked-songs" },
+  { icon: "person", label: "Account", path: "/account" },
   { icon: "logout", label: "Logout", danger: true },
 ];
