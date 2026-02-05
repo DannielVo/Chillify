@@ -1,5 +1,6 @@
 import { homeSections } from "../../assets/assets";
 import { trendingSongs } from "../../assets/dummyDB";
+import ProgressBar from "../../components/ProgressBar";
 import SongCard from "../../components/SongCard";
 
 const Home = () => {
@@ -41,6 +42,7 @@ const Home = () => {
           ))}
         </div>
       </section> */}
+      <ProgressBar />
     </div>
   );
 };
