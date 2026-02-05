@@ -1,38 +1,57 @@
-import React from "react";
+import { assets, menuItems } from "../assets/assets";
+import SidebarItem from "./SidebarItem";
 
-const Sidebar = () => {
+interface SidebarProps {
+  isCollapsed: boolean;
+  onToggle: () => void;
+}
+
+export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
   return (
-    <aside className="w-64 min-h-screen hidden md:flex flex-col bg-background-light dark:bg-sidebar-dark border-r border-white/5 p-4">
-      <nav className="flex flex-col gap-2">
-        <div className="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:text-white hover:bg-white/5 rounded-lg cursor-pointer transition-colors">
-          <span className="material-symbols-outlined">home</span>
-          <p className="text-sm font-medium leading-normal">Home</p>
-        </div>
-        <div className="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:text-white hover:bg-white/5 rounded-lg cursor-pointer transition-colors">
-          <span className="material-symbols-outlined">library_music</span>
-          <p className="text-sm font-medium leading-normal">My Playlist</p>
-        </div>
-        <div className="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:text-white hover:bg-white/5 rounded-lg cursor-pointer transition-colors">
-          <span className="material-symbols-outlined">favorite</span>
-          <p className="text-sm font-medium leading-normal">Liked Songs</p>
-        </div>
-        <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary">
-          <span className="material-symbols-outlined">person</span>
-          <p className="text-sm font-medium leading-normal">Account</p>
-        </div>
-        <div className="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:text-white hover:bg-white/5 rounded-lg cursor-pointer transition-colors">
-          <span className="material-symbols-outlined">settings</span>
-          <p className="text-sm font-medium leading-normal">Settings</p>
-        </div>
-        <div className="mt-4 border-t border-white/5 pt-4">
-          <div className="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:text-red-400 hover:bg-red-400/5 rounded-lg cursor-pointer transition-colors">
-            <span className="material-symbols-outlined">logout</span>
-            <p className="text-sm font-medium leading-normal">Logout</p>
-          </div>
-        </div>
+    <aside
+      className={`
+        hidden md:flex flex-col
+        ${isCollapsed ? "w-20" : "w-64"}
+        min-h-screen
+        bg-sidebar-dark
+        border-r border-white/5
+        transition-all duration-300
+      `}
+    >
+      {/* Logo + Hamburger */}
+      <div
+        className={`flex items-center justify-around ${isCollapsed ? "mt-5" : ""}`}
+      >
+        {!isCollapsed && (
+          <img
+            src={assets.logo}
+            alt="Logo"
+            className="h-20 w-28 object-cover"
+          />
+        )}
+
+        <button
+          onClick={onToggle}
+          className={`text-slate-400 hover:text-white cursor-pointer ${isCollapsed ? "mr-2" : ""}`}
+        >
+          <span className="material-symbols-outlined">
+            {isCollapsed ? "menu_open" : "menu"}
+          </span>
+        </button>
+      </div>
+
+      {/* Menu */}
+      <nav className="flex flex-col gap-2 px-2">
+        {menuItems.map((item) => (
+          <SidebarItem
+            key={`sidebaritem-${item.label}`}
+            icon={item.icon}
+            label={item.label}
+            active={item.active}
+            isCollapsed={isCollapsed}
+          />
+        ))}
       </nav>
     </aside>
   );
-};
-
-export default Sidebar;
+}
