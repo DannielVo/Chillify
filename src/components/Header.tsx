@@ -6,21 +6,25 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="border-b border-white/5 bg-background-light dark:bg-sidebar-dark">
-      <div className="relative flex h-15 max-w-7xl mx-auto items-center px-6 lg:px-8">
+    <header className="border-b border-white/5 bg-sidebar-dark">
+      <div className="relative flex h-15 max-w-7xl mx-auto items-center gap-4 px-4">
         {/* Logo */}
-        <div className="flex items-center">
+
+        <div className="flex items-center shrink-0">
           <a onClick={() => navigate("/")} className="cursor-pointer">
             <img
               src={assets.logo}
               alt="Danniel Vo logo"
-              className="h-24 w-24 object-contain"
+              className="h-22 w-22 md:h-24 md:w-24 object-contain"
             />
           </a>
         </div>
 
         {/* Search bar */}
-        <div className="absolute left-1/2 -translate-x-1/2 w-full max-w-md">
+        <div
+          className="flex-1 md:absolute md:left-1/2 md:-translate-x-1/2
+        md:w-full md:max-w-md"
+        >
           <div className="relative group">
             <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">
               search
@@ -32,9 +36,6 @@ const Header = () => {
             />
           </div>
         </div>
-
-        {/* Right spacer */}
-        <div className="w-24"></div>
       </div>
     </header>
   );
