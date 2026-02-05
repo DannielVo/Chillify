@@ -11,11 +11,12 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
     <aside
       className={`
         hidden md:flex flex-col
-        ${isCollapsed ? "w-20" : "w-64"}
+        ${isCollapsed ? "w-20" : "w-52"}
         min-h-screen
         bg-sidebar-dark
         border-r border-white/5
         transition-all duration-300
+        shrink-0
       `}
     >
       {/* Logo + Hamburger */}
@@ -32,7 +33,7 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
 
         <button
           onClick={onToggle}
-          className={`text-slate-400 hover:text-white cursor-pointer ${isCollapsed ? "mr-2" : ""}`}
+          className={`text-slate-400 hover:text-white cursor-pointer ${isCollapsed ? "mr-3" : ""}`}
         >
           <span className="material-symbols-outlined">
             {isCollapsed ? "menu_open" : "menu"}

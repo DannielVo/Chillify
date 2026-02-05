@@ -1,5 +1,7 @@
 import logo from "./remove_bg.png";
 
+// ============= SIDEBAR ITEMS =============
+
 export const assets = {
   logo,
 };
@@ -23,4 +25,20 @@ export const menuItems: MenuItem[] = [
   { icon: "favorite", label: "Liked Songs", path: "/liked-songs" },
   { icon: "person", label: "Account", path: "/account" },
   { icon: "logout", label: "Logout", danger: true },
+];
+
+// ============= HOME SECTIONS =============
+export const homeSections = [
+  {
+    id: 1,
+    title: "Trendings",
+  },
+  {
+    id: 2,
+    title: "For you",
+  },
+  {
+    id: 3,
+    title: "Popular",
+  },
 ];
