@@ -49,6 +49,7 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
             label={item.label}
             active={item.active}
             isCollapsed={isCollapsed}
+            danger={item.danger}
           />
         ))}
       </nav>

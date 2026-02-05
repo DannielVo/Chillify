@@ -21,9 +21,10 @@ export default function SidebarItem({
         ${
           active
             ? "bg-primary/10 text-primary"
-            : "text-slate-400 hover:text-white hover:bg-white/5"
+            : danger
+              ? "text-slate-400 hover:text-red-400 hover:bg-red-500/10"
+              : "text-slate-400 hover:text-white hover:bg-white/5"
         }
-        ${danger && "hover:text-red-500 hover:bg-red-500/5"}
       `}
     >
       <span className="material-symbols-outlined">{icon}</span>

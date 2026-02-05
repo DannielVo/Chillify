@@ -9,5 +9,5 @@ export const menuItems = [
   { icon: "library_music", label: "My Playlist" },
   { icon: "favorite", label: "Liked Songs" },
   { icon: "person", label: "Account", active: true },
-  { icon: "logout", label: "Logout" },
+  { icon: "logout", label: "Logout", danger: true },
 ];
