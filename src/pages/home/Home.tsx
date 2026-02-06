@@ -1,10 +1,12 @@
+import { useMediaQuery } from "react-responsive";
 import { homeSections } from "../../assets/assets";
 import { trendingSongs } from "../../assets/dummyDB";
 import ProgressBar from "../../components/ProgressBar";
 import SongCard from "../../components/SongCard";
 
 const Home = () => {
-  const MAX_SONG_ITEM = 6;
+  const isMobile = useMediaQuery({ maxWidth: 640 });
+  const MAX_SONG_ITEM = isMobile ? 4 : 6;
   const previewSongs = trendingSongs.slice(0, MAX_SONG_ITEM);
   return (
     <div className="px-4 md:px-7 py-4 md:py-6 space-y-8 pb-24">
