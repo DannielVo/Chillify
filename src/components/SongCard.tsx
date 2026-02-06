@@ -6,7 +6,7 @@ interface SongCardProps {
 
 export default function SongCard({ song }: SongCardProps) {
   return (
-    <div className="song-card group flex-none w-48 space-y-3 cursor-pointer">
+    <div className="group space-y-3 cursor-pointer">
       <div className="relative aspect-square w-full rounded-xl overflow-hidden shadow-lg bg-slate-200 dark:bg-border-dark">
         <img
           src={song.image}

@@ -7,7 +7,7 @@ const Home = () => {
   const MAX_SONG_ITEM = 6;
   const previewSongs = trendingSongs.slice(0, MAX_SONG_ITEM);
   return (
-    <div className="px-7 py-6 space-y-10 pb-24">
+    <div className="px-4 md:px-7 py-4 md:py-6 space-y-8 pb-24">
       {homeSections.map((section) => (
         <section key={`home-section-${section.id}`}>
           <div className="flex items-center justify-between mb-4">
@@ -19,7 +19,15 @@ const Home = () => {
             </button>
           </div>
 
-          <div className="flex gap-5 hide-scrollbar pb-4">
+          <div
+            className="grid
+              grid-cols-1
+              sm:grid-cols-3
+              md:grid-cols-4
+              lg:grid-cols-6
+              gap-4
+              pb-4"
+          >
             {previewSongs.map((song) => (
               <SongCard key={`song-${song.id}`} song={song} />
             ))}
@@ -42,7 +50,6 @@ const Home = () => {
           ))}
         </div>
       </section> */}
-      <ProgressBar />
     </div>
   );
 };

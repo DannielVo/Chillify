@@ -10,8 +10,8 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
   return (
     <aside
       className={`
-        hidden md:flex flex-col
-        ${isCollapsed ? "w-20" : "w-52"}
+        flex flex-col
+        ${isCollapsed ? "w-16" : "w-52"}
         min-h-screen
         bg-sidebar-dark
         border-r border-white/5
@@ -33,7 +33,7 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
 
         <button
           onClick={onToggle}
-          className={`text-slate-400 hover:text-white cursor-pointer ${isCollapsed ? "mr-3" : ""}`}
+          className={`text-slate-400 hover:text-white cursor-pointer ${isCollapsed ? "ml-1" : ""}`}
         >
           <span className="material-symbols-outlined">
             {isCollapsed ? "menu_open" : "menu"}
