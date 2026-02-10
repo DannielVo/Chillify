@@ -2,8 +2,10 @@ import { useMediaQuery } from "react-responsive";
 import { homeSections } from "../../assets/assets";
 import ProgressBar from "../../components/ProgressBar";
 import SongCard from "../../components/SongCard";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const isMobile = useMediaQuery({ maxWidth: 640 });
   const MAX_SONG_ITEM = isMobile ? 4 : 6;
   return (
@@ -17,7 +19,10 @@ const Home = () => {
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
                 {section.title}
               </h2>
-              <button className="text-primary text-sm font-semibold hover:underline cursor-pointer">
+              <button
+                className="text-primary text-sm font-semibold hover:underline cursor-pointer"
+                onClick={() => navigate(`/section/:${section.id}`)}
+              >
                 Show all
               </button>
             </div>
