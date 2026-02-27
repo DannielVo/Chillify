@@ -5,7 +5,6 @@ import SongCard from "../../components/SongCard";
 
 const SectionDetail = () => {
   const { sectionId } = useParams();
-
   const section = homeSections.find((s) => s.id.toString() === sectionId);
 
   if (!section) {
@@ -17,12 +16,12 @@ const SectionDetail = () => {
       <div className="max-w-350 px-4 py-4 lg:p-10">
         <div className="flex items-end justify-between mb-8 flex-wrap gap-1.5">
           <div>
-            <h1 className="text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+            <h1 className="text-lg lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
               {section.title}
             </h1>
           </div>
           <div className="flex gap-2">
-            <button className="px-4 py-2 bg-primary text-white rounded-lg flex items-center gap-2 font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform cursor-pointer">
+            <button className="px-4 py-2 bg-primary text-white rounded-lg flex items-center gap-2 font-bold text-sm shadow-lg shadow-primary/20 hover:bg-hover transition-all duration-300 cursor-pointer">
               <span className="material-symbols-outlined text-lg">
                 play_arrow
               </span>
